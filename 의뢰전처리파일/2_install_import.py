@@ -27,7 +27,8 @@ class PackageManager:
         install_message = f"'{module}' 모듈이 설치되어 있지 않습니다. Installing now..."
         print(f"# {install_message}{' ' * (50 - len(install_message))} #")
         try:
-            subprocess.check_call(["pip", "install", module])
+            #subprocess.check_call(["pip", "install", module])
+            subprocess.check_call(["pip", "install", module], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
             success_message = f"'{module}' 모듈 설치에 성공했습니다."
             print(f"# {success_message}{' ' * (50 - len(success_message))} #")
             self.import_module(module)  # 설치 후에 import
