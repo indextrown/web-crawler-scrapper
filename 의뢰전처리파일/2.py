@@ -30,6 +30,7 @@ class PackageManager:
             subprocess.check_call(["pip", "install", module])
             success_message = f"'{module}' 모듈 설치에 성공했습니다."
             print(f"# {success_message}{' ' * (50 - len(success_message))} #")
+            self.import_module(module)  # 설치 후에 import
         except Exception as e:
             error_message = f"'{module}' 모듈 설치 중 에러 발생: {e}"
             print(f"# {error_message}{' ' * (50 - len(error_message))} #")
